@@ -1,14 +1,19 @@
 require 'minitest/autorun'
 require_relative 'resistor_color_duo'
-
 # Common test data version: 2.1.0 00dda3a
 
 def assert_start_with full, sub
   assert (full.start_with? sub) , ("Expected #{full.inspect} to start with #{sub.inspect}")
 end
 class ResistorColorDuoTest < Minitest::Test
-  def test_colors
-    assert_start_with ResistorColorDuo.colorsString ,"Black - "
+  def test_colorstr
+    assert_start_with ResistorColorDuo.colorStr, "black brown"
+  end
+  def test_colorsplit
+    assert_equal  "black", ResistorColorDuo.colorList[0]
+  end
+  def test_colordashes
+    assert_start_with ResistorColorDuo.colorDashes, "Black - "
   end
 
   def test_brown_and_black
