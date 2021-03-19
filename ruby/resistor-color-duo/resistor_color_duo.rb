@@ -13,8 +13,12 @@ class ResistorColorDuo
     Hash[self.colorList.collect.with_index {|v,i| [v,i]}]
   end
 
-  def self.value colors
-    0
+  def self.value(colors)
+    if colors.length < 2
+      0
+      else
+    self.colorDict[colors[0]] * 10 + self.colorDict[colors[1]]
+    end
   end
 
 end
