@@ -9,7 +9,12 @@ class ResistorColorDuo
   def self.colorList
     self.colorStr.split(" ")
   end
-  def self.value l
+  def self.colorDict
+    Hash[self.colorList.collect.with_index {|v,i| [v,i]}]
+  end
+
+  def self.value colors
+    0
   end
 
 end

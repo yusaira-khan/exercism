@@ -15,6 +15,17 @@ class ResistorColorDuoTest < Minitest::Test
   def test_colordashes
     assert_start_with ResistorColorDuo.colorDashes, "Black - "
   end
+  def test_colordict
+    assert_equal   0, ResistorColorDuo.colorDict["black"]
+    assert_equal   1, ResistorColorDuo.colorDict["brown"]
+    assert_equal   6, ResistorColorDuo.colorDict["blue"]
+    assert_equal   8, ResistorColorDuo.colorDict["grey"]
+    assert_equal   4, ResistorColorDuo.colorDict["yellow"]
+  end
+
+  def test_color_empty
+    assert_equal 0, ResistorColorDuo.value([])
+  end
 
   def test_brown_and_black
     skip
