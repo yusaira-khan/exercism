@@ -1,9 +1,14 @@
 package hamming
 
-import "testing"
+import (
+	"fmt"
+	"testing"
+)
 
 func TestHamming(t *testing.T) {
+	var index int = 0
 	for _, tc := range testCases {
+		index++
 		got, err := Distance(tc.s1, tc.s2)
 		if tc.expectError {
 			// check if err is of error type
@@ -11,19 +16,21 @@ func TestHamming(t *testing.T) {
 
 			// we expect error
 			if err == nil {
-				t.Fatalf("Distance(%q, %q); expected error, got nil.",
-					tc.s1, tc.s2)
+				t.Fatalf("%d) Distance(%q, %q); expected error, got nil.",
+					index,tc.s1, tc.s2)
 			}
 		} else {
 			// we do not expect error
 			if err != nil {
-				t.Fatalf("Distance(%q, %q) returned unexpected error: %v",
-					tc.s1, tc.s2, err)
+				t.Fatalf("%d) Distance(%q, %q) returned unexpected error: %v",
+					index, tc.s1, tc.s2, err)
 			}
 			if got != tc.want {
-				t.Fatalf("Distance(%q, %q) = %d, want %d.",
-					tc.s1, tc.s2, got, tc.want)
+				t.Fatalf("%d) Distance(%q, %q) = %d, want %d.",
+					index,tc.s1, tc.s2, got, tc.want)
 			}
+			fmt.Printf("%d) Pass: Distance(%q, %q) = %d.\n",
+				index,tc.s1, tc.s2, tc.want)
 
 		}
 	}
