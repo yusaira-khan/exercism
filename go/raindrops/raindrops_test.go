@@ -3,6 +3,7 @@ package raindrops
 import "testing"
 
 func TestConvert(t *testing.T) {
+	Script()
 	for _, test := range tests {
 		if actual := Convert(test.input); actual != test.expected {
 			t.Errorf("Convert(%d) = %q, expected %q.",
