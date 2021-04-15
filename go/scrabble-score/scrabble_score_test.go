@@ -2,6 +2,7 @@ package scrabble
 
 import (
 	"fmt"
+	"reflect"
 	"testing"
 )
 
@@ -21,4 +22,17 @@ func BenchmarkScore(b *testing.B) {
 			Score(test.input)
 		}
 	}
+}
+
+func TestSplit(t *testing.T){
+	var given   string="D, G"
+	var expected = []rune{'d','g'}
+	var  actual = Split(given)
+	fmt.Printf("Split(%q) expected %d, Actual %d", given, expected, actual)
+	if !reflect.DeepEqual(expected , actual ){
+		t.Errorf("split(%q) expected %d, Actual %d", given, expected, actual)
+
+	}
+
+
 }
