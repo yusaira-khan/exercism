@@ -16,8 +16,8 @@ class ResistorColorDuo
   def self.value(colors)
     if colors.length < 2
       0
-      else
-    self.colorDict[colors[0]] * 10 + self.colorDict[colors[1]]
+    else
+      self.colorDict[colors[0]] * 10 + self.colorDict[colors[1]]
     end
   end
 
