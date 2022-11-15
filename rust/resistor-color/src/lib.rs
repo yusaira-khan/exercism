@@ -19,7 +19,6 @@ pub enum ResistorColor {
 pub fn color_to_value(_color: ResistorColor) -> u32 {
     _color.int_value()
 }
-
 pub fn value_to_color_string(value: u32) -> String {
     if value > color_to_value(last::<ResistorColor>().unwrap()) {
         "value out of range".to_string()
